@@ -10,7 +10,6 @@ const posts= {
 			axios
 				.get('http://localhost:3000/api/posts')
 				.then(res => {
-					console.log(res.data)
 					commit('SET_POSTS', res.data)
 				})
 				.catch(error => {

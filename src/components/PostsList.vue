@@ -14,14 +14,11 @@
 	export default {
 		computed: {
 			...mapState('posts', ['posts'])
-
-		},
+	},
 		mounted() {
 			this.$store.dispatch('posts/loadPosts')
 		}
 	}
-	
-
 </script>
 
 
