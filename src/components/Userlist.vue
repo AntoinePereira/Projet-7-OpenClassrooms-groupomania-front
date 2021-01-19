@@ -1,8 +1,7 @@
 <template>
 	<div class = 'postsList'>
-		<div v-for="post in posts" :key="post.id">
-			<h1>{{ post.post_title }}</h1>
-			<h2>{{ post.post }}</h2>
+		<div v-for="user in users" :key="user.id">
+			<h1>{{ users }}</h1>
 		</div>
 	</div>
 </template>
@@ -13,15 +12,12 @@
 	import { mapState } from "vuex"
 	export default {
 		computed: {
-			...mapState('posts', ['posts'])
-
+			...mapState('users', ['users'])
 		},
 		mounted() {
-			this.$store.dispatch('posts/loadPosts')
+			this.$store.dispatch('users/loadUsers')
 		}
 	}
-	
-
 </script>
 
 
