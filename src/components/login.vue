@@ -35,7 +35,7 @@ export default {
 			let password = this.user.password;
 			this.$store
 				.dispatch("auth/login", { email, password })
-				.then(() => this.$router.push("/about"))
+				.then(() => this.$router.push("/createPost"))
 				.catch(err => console.log(err));
 		}
 	} 

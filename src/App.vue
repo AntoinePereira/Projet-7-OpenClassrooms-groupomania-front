@@ -5,10 +5,29 @@
       <router-link to="/createPost">Post something</router-link> |
       <router-link to="/users">Users</router-link> |
       <router-link to="/about">About</router-link>
+      <button v-if="isLoggedIn" @click="logout">Logout</button>
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+    export default {
+      computed: {
+        isLoggedIn() {
+          return this.$store.getters['auth/isLoggedIn'];
+        }
+      },
+      methods: {
+        logout() {
+          this.$store.dispatch("auth/logout")
+          .then(() => {
+            this.$router.push("/");
+          });
+        }
+      }
+    };
+</script>
 
 <style lang="scss">
 #app {
