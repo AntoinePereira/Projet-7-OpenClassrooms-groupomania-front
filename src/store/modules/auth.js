@@ -5,7 +5,11 @@ const auth= {
 	state: {
 		status: '',
 		token: localStorage.getItem('token') || '',
-		user: {}
+		user: {
+			nom:'',
+			prenom:'',
+			userId: '3'
+		}
 	},
 	actions: {
 		login({commit}, user) {
@@ -14,10 +18,11 @@ const auth= {
 				.post('http://localhost:3000/api/auth/login', user)
 				.then(res => {
 					let token = res.data.token
-					let user = res.data.user
+					let user =  res.data.user
 					localStorage.setItem('token', token)
 					axios.defaults.headers.common['Authorization'] = token
 					commit('AUTH_SUCCESS', token, user)
+					console.log(user)
 				})
 				.catch(error => {
 					commit('AUTH_ERROR')
