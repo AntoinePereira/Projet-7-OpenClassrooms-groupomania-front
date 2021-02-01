@@ -30,7 +30,10 @@ const routes = [
 	{
 		path: '/users',
 		name: 'Users',
-		component: () => import(/* webpackChunkName: "users" */ '../views/Users.vue') 
+		component: () => import(/* webpackChunkName: "users" */ '../views/Users.vue'),
+		meta: {
+			requiresAuth: true
+		} 
 	},
 	{
 		path: '/oneUser',
@@ -44,16 +47,16 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-	let requiresAuth = to.matched.some(record  => record.meta.requiresAuth)
-	let isLoggedIn = store.getters.isLoggedIn
-
-	if (requiresAuth && !isLoggedIn) {
-		next('/')
-	} else if (requiresAuth && isLoggedIn) {
-			next()
-	} else {
-		next()
-		}
-})
+      if (to.matched.some(record => record.meta.requiresAuth)) {
+        if (store.getters.isLoggedIn) {
+          next()
+          return
+        }
+        next('/about')
+      } else {
+        next()
+      }
+    })
 
 export default router
+
