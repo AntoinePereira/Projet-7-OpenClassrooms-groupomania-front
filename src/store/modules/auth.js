@@ -6,9 +6,9 @@ const auth= {
 		status: '',
 		token: localStorage.getItem('token') || '',
 		user: {
+			userId:'',
 			nom:'',
-			prenom:'',
-			userId: '3'
+			prenom: ''
 		}
 	},
 	actions: {
@@ -21,8 +21,7 @@ const auth= {
 					let user =  res.data.user
 					localStorage.setItem('token', token)
 					axios.defaults.headers.common['Authorization'] = token
-					commit('AUTH_SUCCESS', token, user)
-					console.log(user)
+					commit('AUTH_SUCCESS',{token, user})
 				})
 				.catch(error => {
 					commit('AUTH_ERROR')
@@ -40,10 +39,10 @@ const auth= {
 		AUTH_REQUEST(state) {
             state.status = 'loading'
         },
-        AUTH_SUCCESS(state, token, user) {
+        AUTH_SUCCESS(state, payload) {
             state.status = 'success'
-            state.token = token
-            state.user = user
+            state.token = payload.token
+            state.user = payload.user
         },
         AUTH_ERROR(state) {
             state.status = 'error'

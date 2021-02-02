@@ -4,13 +4,13 @@
 			<h1>Login</h1>
 			<div>
 				<label for="email">email</label>
-				<input type="text" id="email" v-model="user.email" required>
+				<input type="text" autocomplete="email" id="email" v-model="user.email" required>
 			</div>
 			<div>
 				<label for="password">Password</label>
-				<input type="password" id="password" v-model="user.password" required>
+				<input type="password" autocomplete="current-password" id="password" v-model="user.password" required>
 			</div>
-			<button @click="login">LOGIN</button>
+			<button type="button" @click="login">LOGIN</button>
 		</form>
 	</div>
 </template>
@@ -35,7 +35,7 @@ export default {
 			let password = this.user.password;
 			this.$store
 				.dispatch("auth/login", { email, password })
-				.then(() => this.$router.push("/createPost"))
+				.then(() => this.$router.push("/"))
 				.catch(err => console.log(err));
 		}
 	} 

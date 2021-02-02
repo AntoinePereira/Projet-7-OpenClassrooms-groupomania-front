@@ -1,22 +1,13 @@
 <template>
 	<div class="createPost">
 		<h1>Postez postez!</h1>
-		<div>
-			<label for="titre">Titre</label>
-			<input type="text" id="titre" v-model="post.title">
+		<div class="postInputDiv">
+			<input type="text" id="titre" placeholder="Titre..." v-model="post.title">
 		</div>
-		<div>
-			<label for="post">Post</label>
-			<input type="text" id="post" v-model="post.post">
-		</div>
-		<div>
-			<label for="userId">userId</label>
-			<input type="text" id="userId" v-model="post.userId">
+		<div class="postInputDiv">
+			<textarea id="post" placeholder="Post..." v-model="post.post"></textarea>
 		</div>
 		<button @click="createPost">PUBLIER</button>
-		---TEST---->{{ post.title }}
-		{{ post.post }}
-		{{ post.userId }}
 	</div>
 </template>
 
@@ -25,7 +16,6 @@
 
 import axios from 'axios'
 
-
 export default {
 	name: 'CreatePost',
 	data() {
@@ -33,12 +23,9 @@ export default {
 			post: {
 				title: null,
 				post: null,
-				userId: null,
+				userId: this.$store.state.auth.user.userId,
 			}
 		}
-	},
-	components: {
-		
 	},
 	methods: {
 		createPost(e) {
@@ -51,3 +38,18 @@ export default {
 	} 
 }
 </script>
+
+<style lang="scss">
+
+.postInputDiv{
+	margin: 1em;
+}
+#titre{
+	width: 60vw;
+}
+#post{
+	width: 60vw;
+	height: 50vh;
+}
+
+</style>

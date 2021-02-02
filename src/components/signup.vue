@@ -12,11 +12,11 @@
             </div>
             <div>
                 <label for="email">email</label>
-                <input type="text" id="email" v-model="user.email" required>
+                <input type="text" autocomplete="new-email" id="new-email" v-model="user.email" required>
             </div>
             <div>
                 <label for="password">Password</label>
-                <input type="password" id="password" v-model="user.password" required>
+                <input type="password" autocomplete="new-password" id="new-password" v-model="user.password" required>
             </div>
             <div>
                 <label for="password-confirm">Is this an administrator account?</label>
@@ -25,7 +25,7 @@
                     <option value=0>No</option>
                 </select>
             </div>
-            <button @click="signup">SIGNUP</button>
+            <button type="button" @click="signup">SIGNUP</button>
         </form>
     </div>
 </template>

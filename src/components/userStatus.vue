@@ -1,9 +1,9 @@
 <template>
 	<div class = 'userStatus'>
-		<h1>test {{ user.prenom }}</h1>
+		<span>{{ user.nom }}</span><br/>
+		<span>{{ user.prenom }}</span>
 	</div>
 </template>
-
 
 
 <script >
@@ -16,8 +16,6 @@
 		},
 	}
 </script>
-
-
 
 <style scoped lang="scss">
     

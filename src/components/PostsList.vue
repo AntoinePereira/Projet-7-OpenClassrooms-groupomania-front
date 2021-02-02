@@ -2,6 +2,7 @@
 	<div class = 'postsList'>
 		<h1>Wall</h1>
 		<div class="onePost" v-for="post in posts" :key="post.id">
+			<h4>{{ post.date }}</h4>
 			<h1>{{ post.post_title }}</h1>
 			<h2>{{ post.post }}</h2>
 		</div>
@@ -15,7 +16,7 @@
 	export default {
 		computed: {
 			...mapState('posts', ['posts'])
-	},
+		},
 		mounted() {
 			this.$store.dispatch('posts/loadPosts')
 		}

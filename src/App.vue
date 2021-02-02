@@ -3,13 +3,13 @@
 		<div id="nav">
 			<div>
 				<router-link to="/">Home</router-link> |
-				<router-link to="/createPost">Post something</router-link> |
-				<router-link to="/users">Users</router-link> |
-				<router-link to="/about">About</router-link>
+				<router-link v-if="!isLoggedIn" to="/auth">Signup/Login</router-link>
+				<router-link v-if="isLoggedIn" to="/createPost">Post something |</router-link> 
+				<router-link v-if="isLoggedIn" to="/users"> Users |</router-link> 
 			</div>
-			<div id="userStatus">
+			<div id="userStatus" v-if="isLoggedIn">
 				<userStatus></userStatus>
-				<button v-if="isLoggedIn" @click="logout">Logout</button>
+				<button @click="logout">Logout</button>
 			</div>
 		</div>
 		<router-view/>
