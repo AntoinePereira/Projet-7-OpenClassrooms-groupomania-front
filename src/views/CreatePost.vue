@@ -32,7 +32,9 @@ export default {
 			axios.post("http://localhost:3000/api/posts", this.post)
 			.then((result) => {
 				console.log(result)
+				alert('Post successfully created!');
 			})
+			.then(() => this.$router.push("/"))
 			e.preventDefault();
 		}
 	} 
