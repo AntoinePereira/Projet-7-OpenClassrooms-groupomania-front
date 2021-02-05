@@ -3,9 +3,11 @@
 		<h1>Wall</h1>
 		<div class="postWrapper">
 			<div class="onePost" v-for="post in posts" :key="post.id">
-				<h4>{{ post.date | formatDate }}</h4>
-				<h1>{{ post.post_title }}</h1>
-				<h2>{{ post.post }}</h2>
+				<router-link :to="`/post/${post.id}`">
+					<h4>{{ post.date | formatDate }}</h4>
+					<h1>{{ post.post_title }}</h1>
+					<h2>{{ post.post }}</h2>
+				</router-link>
 			</div>
 		</div>
 	</div>
