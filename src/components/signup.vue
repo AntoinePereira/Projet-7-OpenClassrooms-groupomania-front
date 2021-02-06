@@ -55,6 +55,7 @@ export default {
             axios.post("http://localhost:3000/api/auth/signup", this.user)
             .then((result) => {
                 console.log(result)
+                alert('Utilisateur enregistré')
             })
             e.preventDefault();
         }

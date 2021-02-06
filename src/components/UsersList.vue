@@ -4,8 +4,6 @@
 		<div class="userTag" v-for="user in users" :key="user.id">
 			<router-link :to="`/user/${user.id}`">
 				<h1>{{ user.prenom }} {{ user.nom }}</h1>
-				<h2>User id:{{ user.id }}</h2>
-				<h2>Email:{{ user.email }}</h2>
 				<h2>Admin: {{ user.isAdmin }}</h2>
 			</router-link>
 		</div>
