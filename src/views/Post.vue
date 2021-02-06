@@ -2,10 +2,11 @@
 	<div class="Post">
 		<img alt="Vue logo" src="../assets/logo.png">
 		<h1>One post</h1>
-		<h2>{{ post.post_title }}</h2>
-		<h2>{{ post.post }}</h2>
+		<h2>titre:{{ post.post_title }}</h2>
+		<h2>Post:{{ post.post }}</h2>
+		<h2>post id :{{ post.id }}</h2>
 		<h2>Auteur : {{user.prenom}} {{ user.nom }}</h2>
-		<h2>{{ comments }}</h2>
+		<h2>Commentaires:{{ comments.comment }}</h2>
 	</div>
 </template>
 
@@ -31,7 +32,9 @@ export default {
 	async created() {
 		let response =  await axios.get(`http://localhost:3000/api/posts/` + this.$route.params.id);
 		this.post = response.data[0];
-		this.getUser()
+		this.getUser();
+		this.getComments();
+		
 		
 	},
 	methods: {
@@ -42,14 +45,14 @@ export default {
 			})
 			.catch(err => {console.log(err)});
 		},
-		//getComments: function (){
-		//	axios.get(`http://localhost:3000/api/comments/` + this.post.id)
-		//	console.log(this.post.id)
-		//	.then(res => {
-		//		this.comments = res.data[0];
-		//	})
-		//	.catch(err => {console.log(err)});
-		//}	  
+		getComments: function (){
+			axios.get(`http://localhost:3000/api/comments/` + this.post.id)
+			
+			.then(res => {
+				this.comments = res.data[0];
+			})
+			.catch(err => {console.log(err)});
+		}	  
 	}
 }
 </script>
