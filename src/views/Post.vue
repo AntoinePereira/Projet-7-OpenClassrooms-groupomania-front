@@ -1,24 +1,25 @@
 <template>
-	<div class="Post">
+	<div class="PostParent">
 		<img alt="Vue logo" src="../assets/logo.png">
-		<h1>One post</h1>
-		<h2>titre:{{ post.post_title }}</h2>
-		<h2>Post:{{ post.post }}</h2>
-		<h4>Auteur : {{user.prenom}} {{ user.nom }}</h4>
-		<h4>{{ post.date | formatDate }}</h4>
-		<button v-if="post.user_id === newComment.userId" @click="deletePost(post.id)">SUPPRIMER</button>
-		<div class="comments">
-			<h2>Commentaires:</h2>
-			<div class="commentaire" v-for="comment in comments" :key="comment.id">
-				<p>{{ comment.comment }}</p>
-				<p>auteur: {{comment.prenom}} {{comment.nom}} {{ comment.date | formatDate }}</p>
-				<button v-if="comment.user_id === newComment.userId" @click="deleteComment(comment.id)">SUPPRIMER</button>
+		<div class="Post">
+			<h1>{{ post.post_title }}</h1>
+			<h2>{{ post.post }}</h2>
+			<h4>Auteur : {{user.prenom}} {{ user.nom }}</h4>
+			<h4>{{ post.date | formatDate }}</h4>
+			<button v-if="post.user_id === newComment.userId" @click="deletePost(post.id)">SUPPRIMER</button>
+			<div class="comments">
+				<h2>Commentaires:</h2>
+				<div class="commentaire" v-for="comment in comments" :key="comment.id">
+					<p>{{ comment.comment }}</p>
+					<p>auteur: {{comment.prenom}} {{comment.nom}} {{ comment.date | formatDate }}</p>
+					<button v-if="comment.user_id === newComment.userId" @click="deleteComment(comment.id)">SUPPRIMER</button>
+				</div>
 			</div>
+			<div class="commentInputDiv">
+				<textarea id="comment" placeholder="Comment..." v-model="newComment.comment"></textarea>
+			</div>
+			<button @click="postComment">AJOUTER UN COMMENTAIRE</button>
 		</div>
-		<div class="commentInputDiv">
-			<textarea id="comment" placeholder="Comment..." v-model="newComment.comment"></textarea>
-		</div>
-		<button @click="postComment">AJOUTER UN COMMENTAIRE</button>
 	</div>
 </template>
 
@@ -102,6 +103,10 @@ export default {
 
 
 <style scoped lang="scss">
+img{
+	max-width: 50vw;
+	margin: 1.5em;
+}
 .comments{
 	background-color: grey
 	;
@@ -119,6 +124,9 @@ export default {
 	border: black solid 0.1em;
     border-radius: 1em;
     box-shadow: 0.5em 0.5em 0.5em #eaeaea; 
+}
+button{
+	margin-bottom: 1em;
 }
 
 </style>

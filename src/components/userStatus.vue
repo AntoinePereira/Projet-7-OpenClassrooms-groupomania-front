@@ -1,7 +1,6 @@
 <template>
 	<div class = 'userStatus'>
-		<span>{{ user.nom }}</span><br/>
-		<span>{{ user.prenom }}</span>
+		<span>{{ user.prenom }} {{ user.nom }}</span>
 	</div>
 </template>
 

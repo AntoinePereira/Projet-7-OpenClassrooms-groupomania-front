@@ -19,8 +19,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 div{
   margin: 1em;
 }
-
+img{
+	max-width: 40vw;
+	//max-height: 30vh;
+}
 </style>
