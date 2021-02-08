@@ -47,7 +47,6 @@
 	text-align: center;
 	color: #2c3e50;
 }
-
 #nav {
 	display: flex;
 	justify-content: space-between;
@@ -61,5 +60,12 @@
 			color: #42b983;
 		}
 	}
+}
+#userStatus{
+	padding: 1em;
+	background-color: #f2f2f2;
+	border: black solid 0.1em;
+	border-radius: 1em;
+	box-shadow: 0.5em 0.5em 0.5em #eaeaea; 
 }
 </style>
