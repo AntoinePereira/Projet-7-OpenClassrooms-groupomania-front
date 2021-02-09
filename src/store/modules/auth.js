@@ -8,7 +8,8 @@ const auth= {
 		user: JSON.parse(localStorage.getItem('user')) || {
 			userId:'',
 			nom:'',
-			prenom: ''
+			prenom: '',
+			isAdmin: ''
 		}
 	},
 	actions: {

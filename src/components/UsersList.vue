@@ -4,7 +4,7 @@
 		<div class="userTag" v-for="user in users" :key="user.id">
 			<router-link :to="`/user/${user.id}`">
 				<h1>{{ user.prenom }} {{ user.nom }}</h1>
-				<h2>Admin: {{ user.isAdmin }}</h2>
+				<h2 v-if="user.isAdmin  === 1">Admin</h2>
 			</router-link>
 		</div>
 	</div>

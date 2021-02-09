@@ -3,8 +3,10 @@
 		<img alt="Vue logo" src="../assets/logo.png">
 		<h1>USER PROFILE</h1>
 		<h2>{{ user.prenom }} {{ user.nom }}</h2>
-		<h2>Userd id:{{ user.id }}</h2>
+		<h2>User id:{{ user.id }}</h2>
 		<h2>Email:{{ user.email }}</h2>
+		<h2 v-if="user.isAdmin  === 1">Admin</h2>
+		<button  v-if="this.$store.state.auth.user.isAdmin === 1" @click="deletePost(user.id)">SUPPRIMER UTILISATEUR</button>
 	</div>
 </template>
 
@@ -28,11 +30,26 @@ export default {
 	async created() {
 		let response =  await axios.get(`http://localhost:3000/api/users/` + this.$route.params.id);
 		this.user = response.data[0];
+	},
+	methods: {
+		deletePost(userId)	{
+			axios.delete(`http://localhost:3000/api/users/` + userId)
+			.then(res => {
+				console.log(res.data);
+				alert('Utilisateur supprimé!');
+				this.$router.push("/users/");
+			})
+			.catch(err => {console.log(err)});
+		}
 	}
 }
+
 </script>
 
 
 <style scoped lang="scss">
-
+img{
+	max-width: 50vw;
+	margin: 1.5em;
+}
 </style>

@@ -20,3 +20,10 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="scss">
+img{
+	max-width: 50vw;
+	margin: 1.5em;
+}
+</style>
