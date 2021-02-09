@@ -4,7 +4,7 @@
 		<div class="postWrapper">
 			<div class="onePost" v-for="post in posts" :key="post.id">
 				<router-link :to="`/post/${post.id}`" :disabled="!isLoggedIn" :event="isLoggedIn ? 'click' : ''">
-					<h4>{{ post.date | formatDate }}</h4>
+					<h4>Publié par {{post.prenom}} {{post.nom}} - {{ post.date | formatDate }}</h4>
 					<h1>{{ post.post_title }}</h1>
 					<p>{{ post.post }}</p>
 				</router-link>
