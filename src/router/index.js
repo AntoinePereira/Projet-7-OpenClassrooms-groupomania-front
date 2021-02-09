@@ -35,12 +35,18 @@ const routes = [
 	{
 		path: '/user/:id',
 		name: 'User',
-		component: () => import(/* webpackChunkName: "users" */ '../views/User.vue') 
+		component: () => import(/* webpackChunkName: "users" */ '../views/User.vue'),
+		meta: {
+			requiresAuth: true
+		} 
 	},
 	{
 		path: '/post/:id',
 		name: 'Post',
-		component: () => import(/* webpackChunkName: "users" */ '../views/Post.vue') 
+		component: () => import(/* webpackChunkName: "users" */ '../views/Post.vue'),
+		meta: {
+			requiresAuth: true
+		}  
 	}
 ]
 

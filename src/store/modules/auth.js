@@ -5,7 +5,7 @@ const auth= {
 	state: {
 		status: '',
 		token: localStorage.getItem('token') || '',
-		user: {
+		user: JSON.parse(localStorage.getItem('user')) || {
 			userId:'',
 			nom:'',
 			prenom: ''
@@ -20,7 +20,8 @@ const auth= {
 					let token = res.data.token
 					let user =  res.data.user
 					localStorage.setItem('token', token)
-					axios.defaults.headers.common['Authorization'] = token
+					localStorage.setItem('user', JSON.stringify(user))
+					axios.defaults.headers.common['Authorization'] = "Bearer " + token;
 					commit('AUTH_SUCCESS',{token, user})
 				})
 				.catch(error => {
@@ -32,6 +33,8 @@ const auth= {
 		logout({ commit }) {
 			commit('LOGOUT')
 			localStorage.removeItem('token')
+			localStorage.removeItem('user')
+			localStorage.removeItem('status')
 			delete axios.defaults.headers.common['Authorization']
 		}
 	},
