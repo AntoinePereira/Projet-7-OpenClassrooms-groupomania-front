@@ -45,37 +45,39 @@
 </script>
 
 <style lang="scss">
+$color-primary: #D1515A;
+
 #app {
-	border: blue solid 2px;
+	//border: blue solid 2px;
 	font-family: Avenir, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
 	header{
-		border: green solid 2px;
+		box-shadow: 0 5px 10px $color-primary;
+		//border-bottom: grey solid 0.1em;
+		padding-bottom: 0.5em;
 		#navbar {
 			width: 100%;
-			border: red solid 2px;
 			display: flex;
 			justify-content: space-between;
-			padding-top: 1em;
+			padding-top: 3vh;
 			#nav{
 				margin-left: 1em;
 				a {
 					font-weight: bold;
 					color: black;
 					&.router-link-exact-active {
-						color: #D1515A;
+						color: $color-primary;
 					}
 				}
 			}
 			#userStatus{
+				font-weight: bold;
 				padding: 0.5em;
 				margin-right: 1em;
-				background-color: #f2f2f2;
-				border: black solid 0.1em;
 				border-radius: 0.5em;
-				box-shadow: 0.5em 0.5em 0.5em #eaeaea; 
+				box-shadow: 0 3px 10px $color-primary; 
 			}
 		}
 		img{
