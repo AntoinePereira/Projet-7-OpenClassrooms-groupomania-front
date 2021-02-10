@@ -43,6 +43,9 @@
     border: red solid 0.1em;
     border-radius: 1em;
     box-shadow: 0.5em 0.5em 0.5em #eaeaea; 
+    overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 .postWrapper{
 	display: flex;
