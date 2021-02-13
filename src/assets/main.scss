@@ -1,0 +1,49 @@
+$color-primary: #D1515A;
+$color-secondary: #091F43;
+
+
+@mixin redButton{
+	color: white;
+	background-color: $color-primary;
+	padding:0.3em;
+	padding-left: 1em;
+	padding-right: 1em;
+	border-radius: 0.5em;
+	box-shadow: 0 0.2em 0.3em $color-secondary;
+	font-size: 0.9rem;
+	&:hover{
+		filter: brightness(110%);
+		box-shadow: 0 0.1em 0.1em 0.1em $color-secondary;
+	}
+}
+@mixin blueButton{
+	color: white;
+	background-color: $color-secondary;
+	padding:0.3em;
+	padding-left: 1em;
+	padding-right: 1em;
+	border-radius: 0.5em;
+	box-shadow: 0 0.2em 0.3em $color-secondary;
+	font-size: 0.9rem;
+	&:hover{
+		filter: brightness(110%);
+		box-shadow: 0 0.1em 0.1em 0.1em $color-primary;
+	}
+}
+
+@mixin card{
+	background-color: white;
+	border-radius: 1em;
+	border: $color-secondary solid 0.1em;
+	box-shadow: 0.5em 0.5em 0.5em $color-secondary; 
+}
+
+@mixin wrapper{
+	background-color: $color-primary;
+	border-radius: 0.5em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: $color-secondary solid 0.1em;
+	box-shadow: 0.2em 0.2em 0.2em $color-secondary;
+}

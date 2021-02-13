@@ -1,39 +1,41 @@
 <template>
     <div class="signup">
-        <form>
+        <div class="topTag">
             <h1>Signup</h1>
-            <div>
-                <label for="nom">Nom</label>
-                <input type="text" id="titre" v-model="user.nom" required autofocus>
-            </div>
-            <div>
-                <label for="prenom">Prenom</label>
-                <input type="text" id="prenom" v-model="user.prenom" required>
-            </div>
-            <div>
-                <label for="email">email</label>
-                <input type="text" autocomplete="new-email" id="new-email" v-model="user.email" required>
-            </div>
-            <div>
-                <label for="password">Password</label>
-                <input type="password" autocomplete="new-password" id="new-password" v-model="user.password" required>
-            </div>
-            <div>
-                <label for="password-confirm">Is this an administrator account?</label>
-                <select v-model="user.isAdmin">
-                    <option value=1>Yes</option>
-                    <option value=0>No</option>
-                </select>
-            </div>
-            <button type="button" @click="signup">SIGNUP</button>
-        </form>
+            <form>
+                
+                <div>
+                    <label for="nom">Nom</label>
+                    <input type="text" id="titre" v-model="user.nom" required autofocus>
+                </div>
+                <div>
+                    <label for="prenom">Prenom</label>
+                    <input type="text" id="prenom" v-model="user.prenom" required>
+                </div>
+                <div>
+                    <label for="email">email</label>
+                    <input type="text" autocomplete="new-email" id="new-email" v-model="user.email" required>
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" autocomplete="new-password" id="new-password" v-model="user.password" required>
+                </div>
+                <div>
+                    <label for="password-confirm">Compte administrateur ?</label>
+                    <select v-model="user.isAdmin">
+                        <option value=1>Oui</option>
+                        <option value=0>Non</option>
+                    </select>
+                </div>
+             </form>
+        </div>
+        <button id="signupBtn" type="button" @click="signup">SIGNUP</button>    
     </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import axios from 'axios'
 
+<script>
+import axios from 'axios'
 
 export default {
     name: 'signup',
@@ -63,13 +65,41 @@ export default {
 }
 </script>
 
+
 <style scoped lang="scss">
-    form{
-        margin: 2em;
+@import '@/assets/main.scss';
+
+.signup{
+    border: $color-secondary solid 0.1em;
+    border-radius: 1em;
+    box-shadow: 0.5em 0.5em 0.5em $color-secondary;
+    .topTag{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h1{
+            margin-bottom: 0px;
+        }
+        form{
+            margin: 1em;
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+            div{
+                margin: 0.1em;
+                display: flex;
+                width: 95%;
+                input{
+                    width: 80%;
+                    flex: 1;
+                }
+            }
+        }
     }
-    .signup{
-        border: black solid 0.1em;
-        border-radius: 1em;
-        box-shadow: 0.5em 0.5em 0.5em #eaeaea; 
-    }
+    #signupBtn{
+        @include blueButton;
+        margin: 1em;
+    } 
+}
 </style>

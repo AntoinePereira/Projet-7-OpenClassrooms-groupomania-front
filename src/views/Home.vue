@@ -5,9 +5,7 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import PostsList from '@/components/PostsList.vue'
-
 
 export default {
   name: 'Home',
@@ -17,13 +15,10 @@ export default {
 }
 </script>
 
+
 <style scoped lang="scss">
 
-div{
+.home{
   margin: 1em;
-}
-img{
-	max-width: 40vw;
-	//max-height: 30vh;
 }
 </style>

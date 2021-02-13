@@ -1,13 +1,13 @@
 <template>
 	<div class="createPost">
-		<h1>Postez postez!</h1>
+		<h1>Postez un article!</h1>
 		<div class="postInputDiv">
 			<input type="text" id="titre" placeholder="Titre..." v-model="post.title">
 		</div>
 		<div class="postInputDiv">
 			<textarea id="post" placeholder="Post..." v-model="post.post"></textarea>
 		</div>
-		<button @click="createPost">PUBLIER</button>
+		<button id='postBtn' @click="createPost">PUBLIER</button>
 	</div>
 </template>
 
@@ -42,16 +42,20 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/assets/main.scss';
 
 .postInputDiv{
 	margin: 1em;
+	#titre{
+		width: 60vw;
+	}
+	#post{
+		width: 60vw;
+		height: 40vh;
+	}
 }
-#titre{
-	width: 60vw;
+#postBtn{
+	margin: 0.3em;
+	@include blueButton;
 }
-#post{
-	width: 60vw;
-	height: 50vh;
-}
-
 </style>

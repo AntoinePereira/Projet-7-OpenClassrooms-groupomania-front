@@ -7,7 +7,7 @@
 					<p>{{ post.post }}</p>
 				</div>
 				<div class="auteur">
-					<p>-- Publié par {{post.prenom}} {{post.nom}} - {{ post.date | formatDate }} --</p>
+					<p>Publié par {{post.prenom}} {{post.nom}}<br>-- {{ post.date | formatDate }} --</p>
 				</div>
 			</router-link>
 		</div>
@@ -32,28 +32,33 @@
 
 
 <style scoped lang="scss">
+@import '@/assets/main.scss';
+
 
 .postsList{
-	display: flex;
+	@include wrapper;
 	flex-direction: column-reverse;
-	border: black solid 0.1em;
+}
+
+@mixin card{
+	background-color: white;
 	border-radius: 1em;
-	box-shadow: 0.5em 0.5em 0.5em #eaeaea; 
+	border: $color-secondary solid 0.1em;
+	box-shadow: 0.5em 0.5em 0.5em $color-secondary; 
 }
 .onePost{
+	@include card;
 	margin: 1em;
-	border: black solid 0.1em;
-	border-radius: 1em;
 	overflow: hidden;
-	box-shadow: 0.5em 0.5em 0.5em #eaeaea; 
+	width: 95%;
 	a{
 		text-decoration: none;
-		color: black;
+		color: $color-secondary;
 		}
 	.auteur{
 		height: 50%;
 		text-align: right;
-		background-color: black;
+		background-color: $color-secondary;
 		color: white;
 		p{
 			margin-bottom: 0px;

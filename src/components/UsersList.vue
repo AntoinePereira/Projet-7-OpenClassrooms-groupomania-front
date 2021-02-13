@@ -1,15 +1,13 @@
 <template>
 	<div class = 'usersList'>
-		<h1>Users</h1>
 		<div class="userTag" v-for="user in users" :key="user.id">
 			<router-link :to="`/user/${user.id}`">
-				<h1>{{ user.prenom }} {{ user.nom }}</h1>
-				<h2 v-if="user.isAdmin  === 1">Admin</h2>
+				<h2>{{ user.prenom }} {{ user.nom }}</h2>
+				<h3 v-if="user.isAdmin  === 1">Admin</h3>
 			</router-link>
 		</div>
 	</div>
 </template>
-
 
 
 <script >
@@ -25,17 +23,21 @@
 </script>
 
 
-
 <style scoped lang="scss">
-	.usersList{
-		border: black solid 0.1em;
-		border-radius: 1em;
-		box-shadow: 0.5em 0.5em 0.5em #eaeaea; 
+@import '@/assets/main.scss';
+
+.usersList{
+	@include wrapper;
+	align-items: stretch;
+	
+}
+.userTag{
+	@include card;
+	margin: 1em;
+	overflow: hidden; 
+	a{
+		text-decoration: none;
+		color: $color-secondary;
 	}
-	.userTag{
-		margin: 1em;
-		border: red solid 0.1em;
-		border-radius: 1em;
-		box-shadow: 0.5em 0.5em 0.5em #eaeaea; 
-	}
+}
 </style>

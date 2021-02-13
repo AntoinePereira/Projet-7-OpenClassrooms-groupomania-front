@@ -1,23 +1,21 @@
 <template>
-	<div class="PostParent">
-		<img alt="Vue logo" src="../assets/logo.png">
-		<div class="Post">
+	<div class="wrapper">
+		<div class="post">
 			<h1>{{ post.post_title }}</h1>
-			<h2>{{ post.post }}</h2>
-			<h4>Auteur : {{user.prenom}} {{ user.nom }}</h4>
-			<h4>{{ post.date | formatDate }}</h4>
+			<h3>{{ post.post }}</h3>
+			<p>Auteur : {{user.prenom}} {{ user.nom }}	</p>
+			<p>{{ post.date | formatDate }}</p>
 			<button v-if="post.user_id === newComment.userId" @click="deletePost(post.id)">SUPPRIMER</button>
-			<div class="comments">
-				<h2>Commentaires:</h2>
-				<div class="commentaire" v-for="comment in comments" :key="comment.id">
-					<p>{{ comment.comment }}</p>
-					<p>auteur: {{comment.prenom}} {{comment.nom}} {{ comment.date | formatDate }}</p>
-					<button v-if="comment.user_id === newComment.userId" @click="deleteComment(comment.id)">SUPPRIMER</button>
-				</div>
+		</div>
+		<div class="comments">
+			<div class="commentaire" v-for="comment in comments" :key="comment.id">
+				<p>{{ comment.comment }}</p>
+				<span>auteur: {{comment.prenom}} {{comment.nom}} {{ comment.date | formatDate }}
+				<button v-if="comment.user_id === newComment.userId" @click="deleteComment(comment.id)">SUPPRIMER</button></span>
 			</div>
-			<div class="commentInputDiv">
-				<textarea id="comment" placeholder="Comment..." v-model="newComment.comment"></textarea>
-			</div>
+		</div>
+		<div class="newComment">
+			<textarea id="comment" placeholder="Comment..." v-model="newComment.comment"></textarea>
 			<button @click="postComment">AJOUTER UN COMMENTAIRE</button>
 		</div>
 	</div>
@@ -103,32 +101,60 @@ export default {
 
 
 <style scoped lang="scss">
-img{
-	max-width: 50vw;
-	margin: 1.5em;
-}
-.comments{
-	background-color: grey
-	;
-	border: black solid 0.1em;
-    border-radius: 1em;
-    box-shadow: 0.5em 0.5em 0.5em #eaeaea; 
-}
-.commentaire{
-	border-bottom: #f2f2f2 solid 0.1em;
+@import '@/assets/main.scss';
 
-}
-.Post{
-	background-color: #f2f2f2
-	;
+.wrapper{
 	border: black solid 0.1em;
-    border-radius: 1em;
-    box-shadow: 0.5em 0.5em 0.5em #eaeaea; 
+	border-radius: 1em;
+	box-shadow: 0.5em 0.5em 0.5em $color-secondary;
+	margin: 5vw;
+	overflow: hidden;
+	.post{
+		margin: 1.5em;
+		padding: 1em;
+		p{
+			font-style: italic;
+		}
+		button{
+			margin-bottom: 1em;
+			@include redButton;
+		}
+	}
+	.comments{
+		background-color: white;
+		border: $color-secondary solid 1em;
+		.commentaire{
+			border-bottom: $color-secondary solid 1em;
+			padding-bottom: 1em;
+			p{
+				font-size: 1.2em;
+			}
+			span{
+				font-style: italic;
+				text-decoration: underline;
+				margin-bottom: 2em;
+			}
+			button{
+				margin-left: 3em;
+				@include redButton;
+			}
+		} 
+	}
+	.newComment{
+		background-color: $color-primary;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-bottom: 1em;
+		#comment{
+			margin-top: 1em;
+			width: 60vw;
+			height: 20vh;
+		}
+		button{
+			@include blueButton;
+			margin-top: 1em;
+		}
+	}
 }
-button{
-	margin-bottom: 1em;
-}
-
 </style>
-
-//v-if="comment.userId === this.$store.state.auth.user.userId"
