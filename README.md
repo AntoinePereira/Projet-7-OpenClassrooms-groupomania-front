@@ -1,9 +1,8 @@
-# groupomania
+# Groupomania
 
-Projet OPENCLASSROOMS Groupomania
-Reseau social d'entreprise 
+--Projet OPENCLASSROOMS Groupomania-- Reseau social d'entreprise 
 
-### Vue, Vuex, Vue-router,axios
+### Vue, Vuex, Vue-router, axios
 
 Repository du server Node/Express :  https://github.com/AntoinePereira/groupo-back
 
@@ -28,6 +27,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
