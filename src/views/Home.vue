@@ -4,6 +4,7 @@
   </div>
 </template>
 
+
 <script>
 import PostsList from '@/components/PostsList.vue'
 

@@ -14,7 +14,7 @@
 			</div>
 			<div id="userStatus" v-if="isLoggedIn">
 				<userStatus></userStatus>
-				<button @click="logout">Logout</button>
+				<button @click="logout">LOGOUT</button>
 			</div>
 		</header>
 		<main>
@@ -72,12 +72,17 @@
 			padding-top: 0.6em;
 			margin-left: 0.5em;
 			.routes{
+				background-color: $color-secondary;
+				max-width: 23vw;
+				border-radius: 0.5em;
+				padding: 1em;
 				margin-left: 3vw;
 				a {
 					font-weight: bold;
-					color: black;
+					color: white;
 					&.router-link-exact-active {
 						color: $color-primary;
+						filter: brightness(110%);
 					}
 				}
 			}
@@ -94,6 +99,8 @@
 			padding: 0.1em;
 			button {
 				@include redButton;
+				filter: brightness(95%);
+
 			}
 		}
 	}

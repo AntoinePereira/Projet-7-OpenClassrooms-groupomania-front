@@ -3,21 +3,20 @@
         <div class="topTag">
             <h1>Signup</h1>
             <form>
-                
                 <div>
                     <label for="nom">Nom</label>
-                    <input type="text" id="titre" v-model="user.nom" required autofocus>
+                    <input type="text" id="nom" v-model="user.nom" required autofocus>
                 </div>
                 <div>
                     <label for="prenom">Prenom</label>
                     <input type="text" id="prenom" v-model="user.prenom" required>
                 </div>
                 <div>
-                    <label for="email">email</label>
+                    <label for="new-email">email</label>
                     <input type="text" autocomplete="new-email" id="new-email" v-model="user.email" required>
                 </div>
                 <div>
-                    <label for="password">Password</label>
+                    <label for="new-password">Password</label>
                     <input type="password" autocomplete="new-password" id="new-password" v-model="user.password" required>
                 </div>
                 <div>

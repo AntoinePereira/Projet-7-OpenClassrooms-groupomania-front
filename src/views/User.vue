@@ -2,7 +2,7 @@
 	<div>
 		<div class="wrapper">
 			<div class="user">
-				<h2>{{ user.prenom }} {{ user.nom }}</h2>
+				<h1>{{ user.prenom }} {{ user.nom }}</h1>
 				<h2>User id:{{ user.id }}</h2>
 				<h2>Email: {{ user.email }}</h2>
 				<h2 v-if="user.isAdmin  === 1">Admin</h2>
@@ -63,5 +63,7 @@ export default {
 }
 button{
 	@include redButton;
+	filter: brightness(95%);
+	font-style: bold;
 }
 </style>

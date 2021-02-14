@@ -23,17 +23,17 @@ export default {
 @import '@/assets/main.scss';
 
 
-div{
-  margin: 1em;
-}
 .auth{
+	margin: 1em;
 	@include wrapper;
 	.signup{
+		margin: 1em;
 		min-width: 90%;
 		max-width: 95%;
 		@include card;
 	}
 	.login{
+		margin: 1em;
 		min-width: 90%;
 		max-width: 95%;
 		@include card;

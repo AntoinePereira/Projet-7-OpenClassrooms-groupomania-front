@@ -11,9 +11,8 @@
 	</div>
 </template>
 
-<script>
-// @ is an alias to /src
 
+<script>
 import axios from 'axios'
 
 export default {
@@ -40,6 +39,7 @@ export default {
 	} 
 }
 </script>
+
 
 <style lang="scss">
 @import '@/assets/main.scss';

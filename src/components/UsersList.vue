@@ -2,8 +2,8 @@
 	<div class = 'usersList'>
 		<div class="userTag" v-for="user in users" :key="user.id">
 			<router-link :to="`/user/${user.id}`">
-				<h2>{{ user.prenom }} {{ user.nom }}</h2>
-				<h3 v-if="user.isAdmin  === 1">Admin</h3>
+				<h1>{{ user.prenom }} {{ user.nom }}</h1>
+				<h2 v-if="user.isAdmin  === 1">Admin</h2>
 			</router-link>
 		</div>
 	</div>

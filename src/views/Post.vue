@@ -21,6 +21,7 @@
 	</div>
 </template>
 
+
 <script>
 import axios from 'axios';
 
@@ -112,6 +113,9 @@ export default {
 	.post{
 		margin: 1.5em;
 		padding: 1em;
+		h3{
+			overflow: hidden;
+		}
 		p{
 			font-style: italic;
 		}
