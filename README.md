@@ -1,4 +1,13 @@
-# groupomania-app
+# groupomania
+
+Projet OPENCLASSROOMS Groupomania
+Reseau social d'entreprise 
+
+### Vue, Vuex, Vue-router,axios
+
+Repository du server Node/Express :  https://github.com/AntoinePereira/groupo-back
+
+
 
 ## Project setup
 ```
