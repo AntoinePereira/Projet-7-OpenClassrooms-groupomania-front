@@ -8,7 +8,7 @@
 				<h2 v-if="user.isAdmin  === 1">Admin</h2>
 			</div>
 		</div>
-		<button  v-if="this.$store.state.auth.user.isAdmin === 1" @click="deleteUser(user.id)">SUPPRIMER UTILISATEUR</button>
+		<button  v-if="(this.$store.state.auth.user.isAdmin === 1) || (this.$store.state.auth.user.userId === this.user.id)" @click="deleteUser(user.id)">SUPPRIMER UTILISATEUR</button>
 	</div>
 </template>
 

@@ -22,7 +22,7 @@ const routes = [
 	{
 		path: '/auth',
 		name: 'Auth',
-		component: () => import(/* webpackChunkName: "createPost" */ '../views/Auth.vue'),
+		component: () => import(/* webpackChunkName: "Auth" */ '../views/Auth.vue'),
 	},
 	{
 		path: '/users',
@@ -35,7 +35,7 @@ const routes = [
 	{
 		path: '/user/:id',
 		name: 'User',
-		component: () => import(/* webpackChunkName: "users" */ '../views/User.vue'),
+		component: () => import(/* webpackChunkName: "user" */ '../views/User.vue'),
 		meta: {
 			requiresAuth: true
 		} 
@@ -43,7 +43,7 @@ const routes = [
 	{
 		path: '/post/:id',
 		name: 'Post',
-		component: () => import(/* webpackChunkName: "users" */ '../views/Post.vue'),
+		component: () => import(/* webpackChunkName: "post" */ '../views/Post.vue'),
 		meta: {
 			requiresAuth: true
 		}  

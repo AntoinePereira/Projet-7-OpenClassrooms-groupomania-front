@@ -1,6 +1,8 @@
 <template>
 	<div class = 'userStatus'>
-		<span>{{ user.prenom }} {{ user.nom }}</span>
+		<router-link :to="`/user/${ user.userId }`">
+			<span>{{ user.prenom }} {{ user.nom }}</span>
+		</router-link>
 	</div>
 </template>
 
@@ -28,5 +30,9 @@
 	background-color: $color-secondary;
 	color: white;
 	margin-bottom: 0.5em;
+	a{
+		text-decoration: none;
+		color: white;
+	}
 }
 </style>

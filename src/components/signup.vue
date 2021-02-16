@@ -19,13 +19,6 @@
                     <label for="new-password">Password</label>
                     <input type="password" autocomplete="new-password" id="new-password" v-model="user.password" required>
                 </div>
-                <div>
-                    <label for="password-confirm">Compte administrateur ?</label>
-                    <select v-model="user.isAdmin">
-                        <option value=1>Oui</option>
-                        <option value=0>Non</option>
-                    </select>
-                </div>
              </form>
         </div>
         <button id="signupBtn" type="button" @click="signup">SIGNUP</button>    
@@ -45,7 +38,6 @@ export default {
                 prenom: null,
                 email: null,
                 password: null,
-                isAdmin: null,
             }
         }
     },
